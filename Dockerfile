@@ -12,16 +12,9 @@ RUN mkdir -p $CONDA_DIR && \
     /bin/bash /Miniconda3-3.9.1-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
     rm Miniconda3-3.9.1-Linux-x86_64.sh
 
-ENV NB_USER keras
-ENV NB_UID 1000
-
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     mkdir -p $CONDA_DIR && \
-    chown keras $CONDA_DIR -R && \
-    mkdir -p /src && \
-    chown keras /src
-
-USER keras
+    mkdir -p /src
 
 # Python
 ARG python_version=3.5.1
