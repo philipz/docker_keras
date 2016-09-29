@@ -25,7 +25,7 @@ USER keras
 
 # Python
 ARG python_version=3.5.1
-ARG tensorflow_version=0.9.0rc0-cp35-cp35m
+ARG tensorflow_version=0.10.0-cp35-cp35m
 RUN conda install -y python=${python_version} && \
     pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-${tensorflow_version}-linux_x86_64.whl && \
     pip install git+git://github.com/Theano/Theano.git && \
