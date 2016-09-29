@@ -12,8 +12,7 @@ RUN mkdir -p $CONDA_DIR && \
     /bin/bash /Miniconda3-3.9.1-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
     rm Miniconda3-3.9.1-Linux-x86_64.sh
 
-RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
-    mkdir -p $CONDA_DIR && \
+RUN mkdir -p $CONDA_DIR && \
     mkdir -p /src
 
 # Python
