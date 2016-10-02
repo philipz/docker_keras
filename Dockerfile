@@ -1,4 +1,4 @@
-FROM nvidia/cuda:7.5-cudnn5-devel
+FROM nvidia/cuda:7.5-cudnn5-devel-ubuntu14.04
 
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
