@@ -1,4 +1,4 @@
-# Using Keras via Docker
+# Using Keras via Nvidia-Docker
 
 This directory contains `Dockerfile` to make it easy to get up and running with
 Keras via [Docker](http://www.docker.com/).
@@ -14,40 +14,10 @@ quick links here:
 
 ## Running the container
 
-We are using `Makefile` to simplify docker commands within make commands.
-
-Build the container and start a jupyter notebook
-
-    $ make notebook
-
-Build the container and start an iPython shell
-
-    $ make ipython
-
-Build the container and start a bash
-
-    $ make bash
-
 For GPU support install NVidia drivers (ideally latest) and
 [nvidia-docker](https://github.com/NVIDIA/nvidia-docker). Run using
 
-    $ make notebook GPU=0 # or [ipython, bash]
-
-Switch between Theano and TensorFlow
-
-    $ make notebook BACKEND=theano
-    $ make notebook BACKEND=tensorflow
-
-Mount a volume for external data sets
-
-    $ make DATA=~/mydata
-
-Prints all make tasks
-
-    $ make help
-
-You can change Theano parameters by editing `/docker/theanorc`.
-
+`nvidia-docker run --name keras --rm -v $(pwd)/src:/src -v $(pwd)/data:/data -p 8888:8888 -e KERAS_BACKEND=tensorflow philipz/keras`
 
 Note: If you would have a problem running nvidia-docker you may try the old way
 we have used. But it is not recommended. If you find a bug in the nvidia-docker report
